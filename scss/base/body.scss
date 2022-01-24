@@ -1,0 +1,48 @@
+// Css de base
+
+*{
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+h1 {
+    color: $color-primary;
+    font-size: map-get($size, bigger);
+    margin-right: 100px;
+}
+
+h2{
+    color: $color-secondary;
+    font-size: map-get($size, bigger);
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+h3{
+    color: $color-secondary;
+    font-size: map-get($size, biggest);
+    margin: 5px 0px;
+}
+
+h4{
+    color: $color-primary;
+    font-size: map-get($size, big);
+    margin: 5px 0px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 100px;
+}

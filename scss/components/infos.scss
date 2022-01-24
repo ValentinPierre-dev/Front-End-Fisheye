@@ -1,0 +1,16 @@
+.infos {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    width: 250px;
+    bottom: 0;
+    right: 3%;
+    background-color: $color-tertiary;
+    border-radius: $radius-demi;
+    padding: 0px 10px;
+
+    &__likes {
+        display: flex;
+        align-items: center;
+    }
+}

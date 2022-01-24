@@ -1,0 +1,12 @@
+button {
+    font-size: map-get($size, regular-plus);
+    font-weight: $font-bold;
+    color: $color-white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: $color-primary;
+    border-radius: $radius;
+    cursor: pointer;
+}

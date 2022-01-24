@@ -1,0 +1,11 @@
+// Css regroupant tous les partiels
+
+@import "./utils/variables.scss";
+@import "./base/body";
+@import "./components/infos.scss";
+@import "./components/buttons.scss";
+@import "./components/sort.scss";
+@import "./layouts/photographer-section.scss";
+@import "./layouts/photographer-header.scss";
+@import "./layouts/portfolio.scss";
+@import "./layouts/contact-form.scss";

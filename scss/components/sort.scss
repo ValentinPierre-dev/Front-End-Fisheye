@@ -1,0 +1,19 @@
+.sort {
+    display: flex;
+    align-items: center;
+    margin: 20px 100px;
+
+    &__button {
+        font-size: map-get($size, regular-plus);
+        font-weight: bold;
+        color: white;
+        padding: 11px;
+        width: 170px;
+        height: 70px;
+        border: none;
+        background-color: #901C1C;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+}

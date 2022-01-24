@@ -1,0 +1,28 @@
+.photographer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FAFAFA;
+    height: 300px;
+    margin: 0 100px;
+    padding: 0px 50px;
+
+    &__location {
+        color: $color-primary;
+        font-size: map-get($size, big);
+        margin: 5px 0px;
+    }
+
+    &__tagline {
+        color: $color-grey1;
+        font-size: map-get($size, regular);
+    }
+
+    &__photo {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        border-radius: $radius-full;
+        box-shadow: $shadow-photographer;
+    }
+}

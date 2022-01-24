@@ -1,0 +1,43 @@
+.photographer-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    article {
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    img {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        border-radius: $radius-full;
+        box-shadow: $shadow-photographer;
+    }
+
+    .location {
+        color: $color-primary;
+        font-size: map-get($size, small);
+        line-height: 17px;
+        margin: 3px 0px;
+    }
+    
+    .tagline {
+        font-size: map-get($size, smaller);
+        line-height: 13px;
+        margin: 3px 0px;
+    }
+    
+    .price {
+        color: $color-grey2;
+        font-size: map-get($size, smallest);
+        line-height: 12px;
+        margin: 3px 0px;
+    }
+}
