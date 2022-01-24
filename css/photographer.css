@@ -14,6 +14,23 @@ h4 {
     display: none;
 }
 
+.photograph-recap {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    width: 250px;
+    bottom: 0;
+    right: 3%;
+    background-color: #DB8876;
+    border-radius: 5px 5px 0px 0px;
+    padding: 0px 10px;
+}
+
+.photograph-recap-like {
+    display: flex;
+    align-items: center;
+}
+
 .photograph-header {
     display: flex;
     align-items: center;
@@ -48,6 +65,20 @@ h4 {
     cursor: pointer;
 }
 
+.sort_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
 .photograph-photo {
     height: 200px;
     width: 200px;
@@ -59,6 +90,7 @@ h4 {
 
 .sort {
     display: flex;
+    align-items: center;
     margin: 20px 100px;
 }
 
@@ -101,16 +133,30 @@ h4 {
     color: #901C1C;
 }
 
+#modal_bg {
+    display: none;
+    background-color: rgba(196, 196, 196, 0.4);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 48%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    margin: 50px auto;
+    -webkit-box-shadow: 0px 9px 15px -5px rgba(0,0,0,0.27); 
+    box-shadow: 0px 9px 15px -5px rgba(0,0,0,0.27);
 }
 
 .modal header {

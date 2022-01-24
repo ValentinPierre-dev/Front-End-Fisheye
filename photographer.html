@@ -16,6 +16,14 @@
     </header>
 
     <main id="main">
+      
+      <div class="photograph-recap">
+        <div class="photograph-recap-like">
+          <p>112 000</p>
+          <i class="fas fa-heart"></i>
+        </div>
+        <p>300€ / jour</p>
+      </div>
 
       <div class="photograph-header">
         <div class="photograph-description">
@@ -28,8 +36,12 @@
       </div>
 
       <div class="sort">
-        <p>Trier par</p>
-        <button class="contact_button">Popularité</button>
+        <label for="sort_by">Trier par</label>
+        <select name="sort_by" id="sort_by" class="sort_button">
+          <option value="popularity" selected>Popularité</option>
+          <option value="date">Date</option>
+          <option value="title">Titre</option>
+        </select>
       </div>
 
       <section class="photography-section">
@@ -96,21 +108,30 @@
       </section>
     </main>
 
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+    <div id="modal_bg">
+      <div id="contact_modal">
+        <div class="modal">
+          <header>
+            <h2>Contactez-moi</h2>
+            <img src="assets/icons/close.svg" onclick="closeModal()" />
+          </header>
+          <form>
+            <div>
+              <label>Prénom</label>
+              <input />
+              <label>Nom</label>
+              <input />
+              <label>Email</label>
+              <input />
+              <label>Votre message</label>
+              <input />
+            </div>
+            <button class="contact_button">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>
