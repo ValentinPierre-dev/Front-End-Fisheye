@@ -59,22 +59,24 @@
         z-index: 10;
         visibility: hidden;
         overflow: auto;
-        max-height: 200px;
+        max-height: 250px;
 
         &[aria-expanded="true"] {
             visibility: visible;
         }
 
         > li {
+            border-top: solid white 1px;
             display: block;
             align-items: center;
-            padding: 20px 20px;
+            padding: 15px 10px;
+            margin: 0px 10px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
 
             &:hover {
-                background-color: #D3573C;
+                //background-color: #D3573C;
                 outline: none;
             }
         }
