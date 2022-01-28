@@ -13,19 +13,20 @@ async function getData() {
 }
 
 async function displayData(photographer) {
-    const photographersSection = document.querySelector(".photographer-header");
-    const photographerModel = photographerFactory(photographer);
-    const userHeader = photographerModel.getUserHeader();
-    photographersSection.appendChild(userHeader);
+    const photographerModel = photographerFactory(photographer).getUserHeader();
 };
 
 async function displayMedias(medias) {
     const portfolioSection = document.querySelector(".portfolio");
+    const lightboxSection = document.getElementById("lightbox-content");
 
     medias.forEach((media) => {
         const portfolioModel = mediaFactory(media);
         const userPortfolio = portfolioModel.getUserMedias();
         portfolioSection.appendChild(userPortfolio);
+
+        const userLightbox = portfolioModel.getLightbox();
+        lightboxSection.appendChild(userLightbox);
     });
 };
 

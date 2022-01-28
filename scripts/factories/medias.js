@@ -3,6 +3,10 @@ function mediaFactory(data) {
 
     const photo = `assets/photos/Photographers ID photos/${image}`;
 
+    function likesPlus() {
+        likes++;
+    }
+
     function getUserMedias() {
         const media = document.createElement( 'article' );
         media.innerHTML = `
@@ -11,12 +15,22 @@ function mediaFactory(data) {
                 <h4>${title}</h4>
                 <div class="portfolio__caption--likes">
                     <p>${likes}</p>
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart" onclick="likesPlus()"></i>
                 </div>
             </div>
         `
         return (media);
     }
 
-    return { title, likes, image, getUserMedias }
+    function getLightbox() {
+        const lightbox = document.createElement( 'article' );
+        lightbox.className = 'mySlides'
+        lightbox.innerHTML = `
+            <img src="${photo}" style="width:100%">
+            <h4>${title}</h4>
+        `
+        return (lightbox);
+    }
+
+    return { title, likes, image, getUserMedias, getLightbox, likesPlus }
 }
