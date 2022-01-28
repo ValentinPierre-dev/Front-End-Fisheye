@@ -11,7 +11,7 @@
   <body>
 
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
     </header>
 
     <main id="main">
@@ -25,13 +25,13 @@
       </div>
 
       <div class="photographer-header">
-        <div class="photographer-header__description">
+        <!--<div class="photographer-header__description">
           <h3>Mimi Keel</h3>
           <p class="photographer-header__location">London, UK</p>
           <p class="photographer-header__tagline">Voir le beau dans le quotidien</p>
         </div>
         <button class="photographer-header__contact-button" onclick="displayModal()">Contactez-moi</button>
-        <img src="assets\photographers\MimiKeel.jpg" alt="" class="photographer-header__photo">
+        <img src="assets\photographers\MimiKeel.jpg" alt="" class="photographer-header__photo">-->
       </div>
 
       <div class="sort">
@@ -49,7 +49,7 @@
       </div>
 
       <section class="portfolio">
-        <article>
+        <!--<article>
           <img src="assets\photos\Mimi\Animals_Rainbow.jpg" alt="" onclick="openLightbox();currentSlide(1)">
           <div class="portfolio__caption">
             <h4>Arc-en-ciel</h4>
@@ -108,7 +108,7 @@
               <i class="fas fa-heart"></i>
             </div>
           </div>
-        </article>
+        </article>-->
       </section>
     </main>
 
@@ -116,7 +116,7 @@
       <div id="contact_modal" class="modal_bg">
         <div class="modal">
           <header>
-            <h2>Contactez-moi</h2>
+            <h2>Contactez-moi Mimi Keel</h2>
             <img src="assets/icons/close.svg" onclick="closeModal()" />
           </header>
           <form>
@@ -178,6 +178,9 @@
       </div>
     </div>
 
+    <script src="scripts/factories/medias.js"></script>
+    <script src="scripts/factories/photographer.js"></script>
+    <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/dropdown.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/utils/lightbox.js"></script>
