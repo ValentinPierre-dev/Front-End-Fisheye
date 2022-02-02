@@ -1,5 +1,5 @@
 //Mettre le code JavaScript lié à la page photographer.html
-
+const mediaArray = [];
 async function getData() {
     // Penser à remplacer par les données récupérées dans le json
     const id = +window.location.href.split("=")[1];
@@ -16,12 +16,17 @@ async function displayData(photographer) {
     const photographerModel = photographerFactory(photographer).getUserHeader();
 };
 
+async function displayInfos(photographer) {
+    const photographerInfo = photographerFactory(photographer).getUserInfo();
+};
+
 async function displayMedias(medias) {
     const portfolioSection = document.querySelector(".portfolio");
     const lightboxSection = document.getElementById("lightbox-content");
 
     medias.forEach((media) => {
         const portfolioModel = mediaFactory(media);
+        mediaArray.push(portfolioModel)
         const userPortfolio = portfolioModel.getUserMedias();
         portfolioSection.appendChild(userPortfolio);
 
@@ -30,14 +35,33 @@ async function displayMedias(medias) {
     });
 };
 
+async function displayTotal(media) {
+    const totalLikes = mediaFactory(media).getTotalLikes();
+    console.log(totalLikes);
+};
+
 async function init() {
     // Récupère les datas des photographes
     const { photographer, medias } = await getData();
     displayData(photographer);
+    displayInfos(photographer);
     displayMedias(medias);
+    displayTotal(medias);
     console.log(photographer)
     console.log(medias)
     console.log(window.location.href.split("=")[1])
 };
 
 init();
+
+function likesPlus(id) {
+ const mediaToUpdate = mediaArray.find(m => m.id === id)
+ mediaToUpdate.likesPlus()
+ const portfolioSection = document.querySelector(".portfolio");
+ portfolioSection.innerHTML = "";
+ mediaArray.forEach((media) => {
+        const userPortfolio = media.getUserMedias();
+        portfolioSection.appendChild(userPortfolio);
+    });
+}
+   

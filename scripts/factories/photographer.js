@@ -31,5 +31,13 @@ function photographerFactory(data) {
         return (section);
     }
 
-    return { name, picture, city, country, tagline, price, getUserCardDOM, getUserHeader }
+    function getUserInfo() {
+        const info = document.querySelector(".infos");
+        info.innerHTML = `
+            <p>${price} / jour</p>
+        `
+        return (info);
+    }
+
+    return { name, picture, city, country, tagline, price, getUserCardDOM, getUserHeader, getUserInfo }
 }
