@@ -33,9 +33,10 @@ function photographerFactory(data) {
 
     function getUserInfo() {
         const info = document.querySelector(".infos");
-        info.innerHTML = `
-            <p>${price} / jour</p>
-        `
+        const prix = document.createElement("p");
+        prix.innerText = `${price} / jour`
+        info.appendChild(prix);
+
         return (info);
     }
 

@@ -35,9 +35,10 @@ async function displayMedias(medias) {
     });
 };
 
-async function displayTotal(media) {
-    const totalLikes = mediaFactory(media).getTotalLikes();
-    console.log(totalLikes);
+async function displayLikes(media) {
+    const sumall = media.map(item => item.likes).reduce((prev, curr) => prev + curr, 0);
+    const photographerLikes = mediaFactory(media).getUserLikes(sumall);
+    console.log(sumall); 
 };
 
 async function init() {
@@ -46,10 +47,9 @@ async function init() {
     displayData(photographer);
     displayInfos(photographer);
     displayMedias(medias);
-    displayTotal(medias);
+    displayLikes(medias)
     console.log(photographer)
     console.log(medias)
-    console.log(window.location.href.split("=")[1])
 };
 
 init();

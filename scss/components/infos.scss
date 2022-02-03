@@ -11,6 +11,11 @@
 
     &__likes {
         display: flex;
+        flex-direction: row-reverse;
         align-items: center;
+
+        i {
+            margin-left: 10px;
+        }
     }
 }

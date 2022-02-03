@@ -1,7 +1,8 @@
 function mediaFactory(data) {
-    let { title, likes, image, id } = data;
+    let { title, likes, image, id, video } = data;
 
     const photo = `assets/photos/Photographers ID photos/${image}`;
+    const movie = `assets/photos/Photographers ID photos/${video}`;
 
     function likesPlus(id) {
         likes++;
@@ -9,7 +10,22 @@ function mediaFactory(data) {
 
     function getUserMedias() {
         const media = document.createElement( 'article' );
-        media.innerHTML = `
+        const imageOrVideo = movie.indexOf("mp4");
+        if (imageOrVideo !== -1){
+            media.innerHTML = `
+            <video>
+                <source src="${movie}#t=0.1" class="photos" alt="" onclick="openLightbox();currentSlide(1)">
+            </video>
+            <div class="portfolio__caption">
+                <h4>${title}</h4>
+                <div class="portfolio__caption--likes">
+                    <p>${likes}</p>
+                    <i class="fas fa-heart" onclick="likesPlus(${id})"></i>
+                </div>
+            </div>
+        `
+        } else {
+            media.innerHTML = `
             <img src="${photo}" class="photos" alt="" onclick="openLightbox();currentSlide(1)">
             <div class="portfolio__caption">
                 <h4>${title}</h4>
@@ -19,6 +35,8 @@ function mediaFactory(data) {
                 </div>
             </div>
         `
+        }
+
         return (media);
     }
 
@@ -33,10 +51,14 @@ function mediaFactory(data) {
         return (lightbox);
     }
 
-    function getTotalLikes() {
-        const likesArray = [likes];
-        return (likesArray);
+    function getUserLikes(totalLikes) {
+        const infoLikes = document.querySelector(".infos__likes");
+        const total = document.createElement("p");
+        total.innerText = `${totalLikes}`
+        infoLikes.appendChild(total);
+
+        return (infoLikes);
     }
 
-    return { title, likes, image, getUserMedias, getLightbox, likesPlus, getTotalLikes, id }
+    return { title, likes, image, video, getUserMedias, getLightbox, likesPlus, id, getUserLikes }
 }
