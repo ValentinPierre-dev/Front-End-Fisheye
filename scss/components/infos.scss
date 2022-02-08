@@ -8,6 +8,7 @@
     background-color: $color-tertiary;
     border-radius: $radius-demi;
     padding: 0px 10px;
+    z-index: 5;
 
     &__likes {
         display: flex;

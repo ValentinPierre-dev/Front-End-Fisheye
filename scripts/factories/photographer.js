@@ -1,8 +1,11 @@
+// Factory dédiée aux photographes
+
 function photographerFactory(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
+    // Construit la card du photographe pour l'index
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         article.innerHTML = `
@@ -17,6 +20,7 @@ function photographerFactory(data) {
         return (article);
     }
 
+    // Construit le bandeau descriptif du photographe
     function getUserHeader() {
         const section = document.querySelector(".photographer-header");
         section.innerHTML = `
@@ -31,6 +35,7 @@ function photographerFactory(data) {
         return (section);
     }
 
+    // Construit la partie tarif de la barre fixe
     function getUserInfo() {
         const info = document.querySelector(".infos");
         const prix = document.createElement("p");

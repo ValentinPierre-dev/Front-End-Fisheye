@@ -1,0 +1,25 @@
+.heartsChanger{
+      cursor: pointer;
+      &--heart{
+        //position: relative;
+        font-size: map-get($size, big);
+      
+        
+        &.full {
+          transform: scale(1);
+          background: $color-primary;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          -webkit-text-stroke-color: transparent;
+          animation: heartsfilling 500ms ease;
+        }
+        
+      }
+        
+    }
+
+@keyframes heartsfilling {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}

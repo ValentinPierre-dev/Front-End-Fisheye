@@ -1,4 +1,6 @@
-button {
+.dropdown-toggle,
+.contact_button,
+.photographer-header__contact-button {
     font-size: map-get($size, regular-plus);
     font-weight: $font-bold;
     color: $color-white;

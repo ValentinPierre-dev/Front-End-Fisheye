@@ -10,22 +10,25 @@
   </head>
   <body>
 
+    <!-- Header Logo -->
     <header>
       <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
     </header>
 
     <main id="main">
       
+      <!-- Barre fixe comptabilisant le total de like et les tarifs -->
       <div class="infos">
         <div class="infos__likes">
-          <!--<p>112 000</p>-->
           <i class="fas fa-heart"></i>
         </div>
       </div>
 
+      <!-- Bandeau descriptif du photographe -->
       <div class="photographer-header">
       </div>
 
+      <!-- Bouton de tri des photos -->
       <div class="sort">
         <label for="sort_by">Trier par</label>
         <div class="dropdown">
@@ -40,10 +43,13 @@
         </div>
       </div>
 
+      <!-- Portfolio du photographe -->
       <section class="portfolio">
       </section>
+
     </main>
 
+    <!-- Formulaire de contact -->
     <div id="modal_bg">
       <div id="contact_modal" class="modal_bg">
         <div class="modal">
@@ -69,24 +75,15 @@
     </div>
 
     <!-- The Modal/Lightbox -->
-    <div id="myLightbox" class="lightbox">
-      <span class="closeL cursor" onclick="closeLightbox()">&times;</span>
-      <div class="lightbox-content">
 
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 
-        <div id="lightbox-content">
-        </div>
 
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-    </div>
 
     <script src="scripts/factories/medias.js"></script>
     <script src="scripts/factories/photographer.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/dropdown.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
     <script src="/scripts/utils/lightbox.js"></script>
+    <script src="/scripts/pages/photographer.js"></script>
   </body>
 </html>
