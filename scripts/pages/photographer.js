@@ -82,10 +82,20 @@ function likesMoins(id) {
        });*/
 }
 
-
 function openLightbox(id) {
+    document.addEventListener('keyup', keyPress)
     const lightbox = lightboxFactory(mediaArray, id)
     lightbox.displayLightbox()
+}
+
+function nextImage(id) {
+    const next = lightboxFactory(mediaArray, id)
+    next.displayNext()
+}
+
+function prevImage(id) {
+    const next = lightboxFactory(mediaArray, id)
+    next.displayPrev()
 }
 
 function closeLightbox() {
@@ -95,9 +105,20 @@ function closeLightbox() {
     window.setTimeout(() => {
         body.removeChild(lightbox);
     }, 500)
+    document.removeEventListener('keyup', keyEscape)
 }
 
-
+function keyPress(e) {
+    if (e.key === 'Escape') {
+        closeLightbox()
+    }
+    else if (e.key === 'ArrowLeft') {
+        prevImage()
+    }
+    else if (e.key === 'ArrowRight') {
+        nextImage()
+    }
+}
 
 // Initialise toutes les données précédentes pour les afficher
 async function init() {
