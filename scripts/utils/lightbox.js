@@ -9,7 +9,20 @@ function lightboxFactory(medias, currentId) {
 
         const dom = document.createElement('div');
         dom.classList.add('lightbox');
-        dom.innerHTML = `
+        if (medias[index].image === undefined){
+            dom.innerHTML = `
+            <button class="lightbox__close" onclick="closeLightbox()">Fermer</button>
+            <button class="lightbox__next" onclick="nextImage()">Suivant</button>
+            <button class="lightbox__prev" onclick="prevImage()">Précédent</button>
+            <div class="lightbox__container">
+                <video controls autoplay>
+                    <source src="assets/photos/Photographers ID photos/${medias[index].video}" type="video/mp4">
+                </video>
+                <h4>${medias[index].title}</h4>
+            </div>
+        `
+        } else if (medias[index].video === undefined){
+            dom.innerHTML = `
             <button class="lightbox__close" onclick="closeLightbox()">Fermer</button>
             <button class="lightbox__next" onclick="nextImage()">Suivant</button>
             <button class="lightbox__prev" onclick="prevImage()">Précédent</button>
@@ -18,6 +31,8 @@ function lightboxFactory(medias, currentId) {
                 <h4>${medias[index].title}</h4>
             </div>
         `
+        }
+        
         const body = document.querySelector('body')
         body.appendChild(dom)
         console.log(medias[index])
@@ -36,10 +51,19 @@ function lightboxFactory(medias, currentId) {
         sessionStorage.setItem('idLightbox', ""+nextIndex)
         console.log(medias)
         const img = document.querySelector('.lightbox__container')
-        img.innerHTML = `
-        <img src="assets/photos/Photographers ID photos/${medias[nextIndex].image}" alt="${medias[nextIndex].title}">
-        <h4>${medias[nextIndex].title}</h4>
-        `
+        if (medias[nextIndex].image === undefined) {
+            img.innerHTML = `
+            <video controls autoplay>
+                <source src="assets/photos/Photographers ID photos/${medias[nextIndex].video}" type="video/mp4">
+            </video>
+            <h4>${medias[nextIndex].title}</h4>
+            `
+        } else if (medias[nextIndex].video === undefined) {
+            img.innerHTML = `
+            <img src="assets/photos/Photographers ID photos/${medias[nextIndex].image}" alt="${medias[nextIndex].title}">
+            <h4>${medias[nextIndex].title}</h4>
+            `
+        }
 
         return (img);
 
@@ -54,10 +78,20 @@ function lightboxFactory(medias, currentId) {
         sessionStorage.setItem('idLightbox', ""+prevIndex)
         console.log(prevIndex)
         const img = document.querySelector('.lightbox__container')
-        img.innerHTML = `
-        <img src="assets/photos/Photographers ID photos/${medias[prevIndex].image}" alt="${medias[prevIndex].title}">
-        <h4>${medias[prevIndex].title}</h4>
-        `
+        if (medias[prevIndex].image === undefined) {
+            img.innerHTML = `
+            <video controls autoplay>
+                <source src="assets/photos/Photographers ID photos/${medias[prevIndex].video}" type="video/mp4">
+                Votre explorateur ne supporte pas la balise video.
+            </video>
+            <h4>${medias[prevIndex].title}</h4>
+            `
+        } else if (medias[prevIndex].video === undefined) {
+            img.innerHTML = `
+            <img src="assets/photos/Photographers ID photos/${medias[prevIndex].image}" alt="${medias[prevIndex].title}">
+            <h4>${medias[prevIndex].title}</h4>
+            `
+        }
 
         return (img);
 
