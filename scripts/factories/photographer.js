@@ -10,7 +10,7 @@ function photographerFactory(data) {
         const article = document.createElement( 'article' );
         article.innerHTML = `
             <a href="photographer.html?id=${id}">
-                <img src="${picture}"/>
+                <img src="${picture}" alt"${name}"/>
                 <h2>${name}</h2>
                 <p class="location">${city}, ${country}</p>
                 <p class="tagline">${tagline}</p>
@@ -30,7 +30,7 @@ function photographerFactory(data) {
                 <p class="photographer-header__tagline">${tagline}</p>
             </div>
             <button class="photographer-header__contact-button" onclick="displayModal()">Contactez-moi</button>
-            <img src="${picture}" alt="" class="photographer-header__photo">
+            <img src="${picture}" alt="${name}" class="photographer-header__photo">
         `
         return (section);
     }

@@ -1,7 +1,7 @@
 // Factory dédiée aux médias
 
 function mediaFactory(data) {
-    let { title, likes, image, id, video } = data;
+    let { title, likes, image, id, video, date } = data;
 
     const photo = `assets/photos/Photographers ID photos/${image}`;
     const movie = `assets/photos/Photographers ID photos/${video}`;
@@ -11,7 +11,6 @@ function mediaFactory(data) {
         const heartToggler = document.getElementById('hearts-'+id);
         heartToggler.innerHTML = `<i class="fas fa-heart heartsChanger--heart full" onclick="likesMoins(${id})"></i>`;
         likes++;
-        console.log('likes-'+id);
         document.getElementById('likes-'+id).innerText = likes;
         
     }
@@ -30,8 +29,8 @@ function mediaFactory(data) {
         const imageOrVideo = movie.indexOf("mp4");
         if (imageOrVideo !== -1){
             media.innerHTML = `
-            <video>
-                <source src="${movie}#t=0.1" class="photos" alt="" onclick="openLightbox(${id})">
+            <video class="photos" onclick="openLightbox(${id})">
+                <source src="${movie}#t=0.1" alt="${title}">
             </video>
             <div class="portfolio__caption">
                 <h4>${title}</h4>
@@ -45,7 +44,7 @@ function mediaFactory(data) {
         `
         } else {
             media.innerHTML = `
-            <img src="${photo}" class="photos" alt="" onclick="openLightbox(${id})">
+            <img src="${photo}" class="photos" alt="${title}" onclick="openLightbox(${id})">
             <div class="portfolio__caption">
                 <h4>${title}</h4>
                 <div class="portfolio__caption--likes">
@@ -63,6 +62,5 @@ function mediaFactory(data) {
 
 
 
-
-    return { title, likes, image, video, getUserMedias, likesPlus, likesMoins, id }
+    return { title, likes, image, video, getUserMedias, likesPlus, likesMoins, id, date }
 }

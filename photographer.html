@@ -12,7 +12,7 @@
 
     <!-- Header Logo -->
     <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
+      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo Fisheye"/></a>
     </header>
 
     <main id="main">
@@ -36,9 +36,9 @@
             Popularité
           </button>
           <ul class="dropdown-menu" role="listbox" aria-expanded="false">
-            <li role="option" tabindex="0">Popularité</li>
-            <li role="option" tabindex="0">Date</li>
-            <li role="option" tabindex="0">Titre</li>
+            <li role="option" tabindex="0" onclick="sortByPop()">Popularité</li>
+            <li role="option" tabindex="0" onclick="sortByDate()">Date</li>
+            <li role="option" tabindex="0" onclick="sortByTitle()">Titre</li>
           </ul>
         </div>
       </div>

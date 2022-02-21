@@ -285,7 +285,8 @@ p {
   margin-right: 100px;
   margin-bottom: 100px;
 }
-.portfolio img {
+.portfolio img,
+.portfolio video {
   width: 100%;
   height: 375px;
   object-fit: cover;
@@ -293,16 +294,11 @@ p {
   cursor: pointer;
   transition: all 500ms ease;
 }
-.portfolio img:hover {
+.portfolio img:hover,
+.portfolio video:hover {
   transform: scale(1.02);
   -webkit-box-shadow: -1px 5px 11px -1px rgba(0, 0, 0, 0.2);
   box-shadow: -1px 5px 11px -1px rgba(0, 0, 0, 0.2);
-}
-.portfolio video {
-  width: 100%;
-  height: 375px;
-  object-fit: cover;
-  border-radius: 5px;
 }
 .portfolio__caption {
   display: flex;
@@ -455,6 +451,7 @@ form input {
 
 .lightbox__container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-left: 50px;

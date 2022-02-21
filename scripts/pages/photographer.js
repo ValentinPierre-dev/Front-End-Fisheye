@@ -1,4 +1,4 @@
-const mediaArray = [];
+let mediaArray = [];
 
 async function getData() {
 
@@ -45,7 +45,6 @@ async function displayLikes(media) {
 // Affiche le portfolio du photographe
 async function displayMedias(medias) {
     const portfolioSection = document.querySelector(".portfolio");
-
     medias.forEach((media) => {
         const portfolioModel = mediaFactory(media);
         mediaArray.push(portfolioModel)
@@ -60,12 +59,6 @@ function likesPlus(id) {
     mediaToUpdate.likesPlus();
     const totalLikes = document.getElementById('total-likes');
     totalLikes.innerHTML = +totalLikes.innerHTML + 1;
-    /*const portfolioSection = document.querySelector(".portfolio");
-    portfolioSection.innerHTML = "";
-    mediaArray.forEach((media) => {
-           const userPortfolio = media.getUserMedias();
-           portfolioSection.appendChild(userPortfolio);
-       });*/
 }
 
 // Décrémentation de like
@@ -74,12 +67,6 @@ function likesMoins(id) {
     mediaToUpdate.likesMoins();
     const totalLikes = document.getElementById('total-likes');
     totalLikes.innerHTML = +totalLikes.innerHTML - 1;
-    /*const portfolioSection = document.querySelector(".portfolio");
-    portfolioSection.innerHTML = "";
-    mediaArray.forEach((media) => {
-           const userPortfolio = media.getUserMedias();
-           portfolioSection.appendChild(userPortfolio);
-       });*/
 }
 
 function openLightbox(id) {
@@ -105,7 +92,7 @@ function closeLightbox() {
     window.setTimeout(() => {
         body.removeChild(lightbox);
     }, 500)
-    document.removeEventListener('keyup', keyEscape)
+    document.removeEventListener('keyup', keyPress)
 }
 
 function keyPress(e) {
@@ -120,6 +107,50 @@ function keyPress(e) {
     }
 }
 
+function sortByPop() {
+    mediaArray.sort(function compare(a, b){
+        if (a.likes < b.likes)
+            return 1;
+        if (a.likes > b.likes)
+            return -1;
+        return 0;
+    })
+    const portfolio = document.querySelector(".portfolio")
+    portfolio.innerHTML=""
+    displayMedias(mediaArray)
+    mediaArray = Array.from(new Set(mediaArray))
+    console.log(mediaArray)
+    
+}
+
+function sortByDate() {
+    mediaArray.sort(function compare(a, b){
+        if (a.date < b.date)
+            return 1;
+        if (a.date > b.date)
+            return -1;
+        return 0;
+    })
+    const portfolio = document.querySelector(".portfolio")
+    portfolio.innerHTML=""
+    displayMedias(mediaArray)
+    console.log(mediaArray)
+}
+
+function sortByTitle() {
+    mediaArray.sort(function compare(a, b){
+        if (a.title < b.title)
+            return -1;
+        if (a.title > b.title)
+            return 1;
+        return 0;
+    })
+    const portfolio = document.querySelector(".portfolio")
+    portfolio.innerHTML=""
+    displayMedias(mediaArray)
+    console.log(mediaArray)
+}
+
 // Initialise toutes les données précédentes pour les afficher
 async function init() {
     const { photographer, medias } = await getData();
@@ -128,7 +159,7 @@ async function init() {
     displayMedias(medias);
     displayLikes(medias);
     console.log(photographer);
-    console.log(medias);
+    console.log(mediaArray);
 };
 
 init();
