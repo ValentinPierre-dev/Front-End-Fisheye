@@ -11,22 +11,22 @@ function lightboxFactory(medias, currentId) {
         dom.classList.add('lightbox');
         if (medias[index].image === undefined){
             dom.innerHTML = `
-            <button class="lightbox__close" onclick="closeLightbox()">Fermer</button>
-            <button class="lightbox__next" onclick="nextImage()">Suivant</button>
-            <button class="lightbox__prev" onclick="prevImage()">Précédent</button>
-            <div class="lightbox__container">
+            <button class="lightbox__close" onclick="closeLightbox()" aria-label="Close dialog">Fermer</button>
+            <button class="lightbox__next" onclick="nextImage()" aria-label="Next image">Suivant</button>
+            <button class="lightbox__prev" onclick="prevImage()" aria-label="Previous image">Précédent</button>
+            <div class="lightbox__container" aria-label="image closeup view">
                 <video controls autoplay>
-                    <source src="assets/photos/Photographers ID photos/${medias[index].video}" type="video/mp4">
+                    <source src="assets/photos/Photographers ID photos/${medias[index].video}" alt="${medias[index].title}" type="video/mp4">
                 </video>
                 <h4>${medias[index].title}</h4>
             </div>
         `
         } else if (medias[index].video === undefined){
             dom.innerHTML = `
-            <button class="lightbox__close" onclick="closeLightbox()">Fermer</button>
-            <button class="lightbox__next" onclick="nextImage()">Suivant</button>
-            <button class="lightbox__prev" onclick="prevImage()">Précédent</button>
-            <div class="lightbox__container">
+            <button class="lightbox__close" onclick="closeLightbox()" aria-label="Close dialog">Fermer</button>
+            <button class="lightbox__next" onclick="nextImage()" aria-label="Next image">Suivant</button>
+            <button class="lightbox__prev" onclick="prevImage()" aria-label="Previous image">Précédent</button>
+            <div class="lightbox__container" aria-label="image closeup view">
                 <img src="assets/photos/Photographers ID photos/${medias[index].image}" alt="${medias[index].title}">
                 <h4>${medias[index].title}</h4>
             </div>
@@ -54,7 +54,7 @@ function lightboxFactory(medias, currentId) {
         if (medias[nextIndex].image === undefined) {
             img.innerHTML = `
             <video controls autoplay>
-                <source src="assets/photos/Photographers ID photos/${medias[nextIndex].video}" type="video/mp4">
+                <source src="assets/photos/Photographers ID photos/${medias[nextIndex].video}" alt="${medias[nextIndex].title}" type="video/mp4">
             </video>
             <h4>${medias[nextIndex].title}</h4>
             `
@@ -81,7 +81,7 @@ function lightboxFactory(medias, currentId) {
         if (medias[prevIndex].image === undefined) {
             img.innerHTML = `
             <video controls autoplay>
-                <source src="assets/photos/Photographers ID photos/${medias[prevIndex].video}" type="video/mp4">
+                <source src="assets/photos/Photographers ID photos/${medias[prevIndex].video}" alt="${medias[prevIndex].title}" type="video/mp4">
                 Votre explorateur ne supporte pas la balise video.
             </video>
             <h4>${medias[prevIndex].title}</h4>

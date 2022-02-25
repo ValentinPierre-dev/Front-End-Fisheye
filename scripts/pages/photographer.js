@@ -26,6 +26,10 @@ async function displayInfos(photographer) {
     const photographerInfo = photographerFactory(photographer).getUserInfo();
 };
 
+function openContactForm(photographer) {
+    const contactForm = photographerFactory(photographer).getContactForm();
+}
+
 // Construit la partie likes de la barre fixe
 function getUserLikes(totalLikes) {
     const infoLikes = document.querySelector(".infos__likes");
@@ -45,6 +49,7 @@ async function displayLikes(media) {
 // Affiche le portfolio du photographe
 async function displayMedias(medias) {
     const portfolioSection = document.querySelector(".portfolio");
+    mediaArray = []
     medias.forEach((media) => {
         const portfolioModel = mediaFactory(media);
         mediaArray.push(portfolioModel)
@@ -74,6 +79,7 @@ function openLightbox(id) {
     const lightbox = lightboxFactory(mediaArray, id)
     lightbox.displayLightbox()
 }
+
 
 function nextImage(id) {
     const next = lightboxFactory(mediaArray, id)
@@ -118,7 +124,6 @@ function sortByPop() {
     const portfolio = document.querySelector(".portfolio")
     portfolio.innerHTML=""
     displayMedias(mediaArray)
-    mediaArray = Array.from(new Set(mediaArray))
     console.log(mediaArray)
     
 }
@@ -156,6 +161,7 @@ async function init() {
     const { photographer, medias } = await getData();
     displayData(photographer);
     displayInfos(photographer);
+    openContactForm(photographer);
     displayMedias(medias);
     displayLikes(medias);
     console.log(photographer);

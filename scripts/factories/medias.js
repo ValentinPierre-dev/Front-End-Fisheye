@@ -30,14 +30,14 @@ function mediaFactory(data) {
         if (imageOrVideo !== -1){
             media.innerHTML = `
             <video class="photos" onclick="openLightbox(${id})">
-                <source src="${movie}#t=0.1" alt="${title}">
+                <source src="${movie}#t=0.1" alt="${title}" aria-label="${title}, closeup view">
             </video>
             <div class="portfolio__caption">
                 <h4>${title}</h4>
                 <div class="portfolio__caption--likes">
                     <p class="photo-likes" id="likes-${id}">${likes}</p>
                     <div class="heartsChanger" id="hearts-${id}">
-                        <i class="far fa-heart heartsChanger--heart empty" onclick="likesPlus(${id})"></i>
+                        <i class="far fa-heart heartsChanger--heart empty" onclick="likesPlus(${id})" aria-label="likes"></i>
                     </div>  
                 </div>
             </div>
