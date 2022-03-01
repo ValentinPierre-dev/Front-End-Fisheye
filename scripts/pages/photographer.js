@@ -74,23 +74,26 @@ function likesMoins(id) {
     totalLikes.innerHTML = +totalLikes.innerHTML - 1;
 }
 
+// Ouvre la lightbox
 function openLightbox(id) {
     document.addEventListener('keyup', keyPress)
     const lightbox = lightboxFactory(mediaArray, id)
     lightbox.displayLightbox()
 }
 
-
+// Passe à l'image suivante
 function nextImage(id) {
     const next = lightboxFactory(mediaArray, id)
     next.displayNext()
 }
 
+// Passe à l'image précédente
 function prevImage(id) {
     const next = lightboxFactory(mediaArray, id)
     next.displayPrev()
 }
 
+// Ferme la lightbox
 function closeLightbox() {
     const lightbox = document.querySelector('.lightbox');
     const body = document.querySelector('body');
@@ -101,6 +104,7 @@ function closeLightbox() {
     document.removeEventListener('keyup', keyPress)
 }
 
+// Navigation au clavier dans la lightbox
 function keyPress(e) {
     if (e.key === 'Escape') {
         closeLightbox()
@@ -113,6 +117,7 @@ function keyPress(e) {
     }
 }
 
+// Tri par popularité
 function sortByPop() {
     mediaArray.sort(function compare(a, b){
         if (a.likes < b.likes)
@@ -128,6 +133,7 @@ function sortByPop() {
     
 }
 
+// Tri par date
 function sortByDate() {
     mediaArray.sort(function compare(a, b){
         if (a.date < b.date)
@@ -142,6 +148,7 @@ function sortByDate() {
     console.log(mediaArray)
 }
 
+// Tri par titre
 function sortByTitle() {
     mediaArray.sort(function compare(a, b){
         if (a.title < b.title)
