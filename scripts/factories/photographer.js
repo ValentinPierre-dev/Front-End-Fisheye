@@ -41,26 +41,32 @@ function photographerFactory(data) {
         const modal = document.getElementById("modal_bg");
         modal.innerHTML = `
         <div id="contact_modal" class="modal_bg" aria-labelledby="contact_name">
-        <div class="modal">
-          <header>
-            <h2 id="contact_name">Contactez-moi ${name}</h2>
-            <img src="assets/icons/close.svg" onclick="closeModal()" />
-          </header>
-          <form>
-            <div>
-              <label>Prénom</label>
-              <input />
-              <label>Nom</label>
-              <input />
-              <label>Email</label>
-              <input />
-              <label>Votre message</label>
-              <input />
-            </div>
-            <button class="contact_button">Envoyer</button>
-          </form>
+          <div class="modal">
+            <header>
+              <h2 id="contact_name">Contactez-moi</br>${name}</h2>
+              <img src="assets/icons/close.svg" onclick="closeModal()" />
+            </header>
+            <form>
+              <div>
+                <label for="firstname">Prénom</label>
+                <input class="text-control" type="text" id="firstname" name="firstname" /><br>
+              </div>
+              <div>
+                <label for="lastname">Nom</label>
+                <input class="text-control" type="text" id="lastname" name="lastname" /><br>
+              </div>
+              <div>
+                <label for="email">E-mail</label>
+                <input class="text-control" type="email" id="email" name="email" /><br>
+              </div>
+              <div>
+                <label for="message">Votre message</label>
+                <input class="text-control" type="textarea" id="message" name="message" /><br>
+              </div>
+              <button class="contact_button" aria-label="Send" onclick="sendModal()" id="send" href="photographer.html?id=${id}">Envoyer</button>
+            </form>
+          </div>
         </div>
-      </div>
         `
         return (modal);
     }
