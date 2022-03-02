@@ -44,7 +44,7 @@ function mediaFactory(data) {
         `
         } else {
             media.innerHTML = `
-            <img src="${photo}" class="photos" alt="${title}" onclick="openLightbox(${id})">
+            <img src="${photo}" class="photos" alt="${title}" onclick="openLightbox(${id})" aria-label="${title}, closeup view">
             <div class="portfolio__caption">
                 <h4>${title}</h4>
                 <div class="portfolio__caption--likes">

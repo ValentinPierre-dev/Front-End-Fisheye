@@ -5,6 +5,7 @@ function lightboxFactory(medias, currentId) {
     let index = medias.findIndex(m => m.id === currentId);
     console.log(currentId)
 
+    // Crée la lightbox
     function displayLightbox() {
 
         const dom = document.createElement('div');
@@ -42,6 +43,7 @@ function lightboxFactory(medias, currentId) {
         return (dom);
     }
 
+    // Affiche l'image suivante
     function displayNext() {
         
         let nextIndex = +sessionStorage.getItem('idLightbox') +1
@@ -69,6 +71,7 @@ function lightboxFactory(medias, currentId) {
 
     }
 
+    // Affiche l'image précédente
     function displayPrev() {
         
         let prevIndex = +sessionStorage.getItem('idLightbox') -1

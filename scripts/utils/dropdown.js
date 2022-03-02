@@ -22,7 +22,7 @@ function DropDown(dropDown) {
     
     const handleItemKeyDown = (e) => {
       e.preventDefault();
-  
+      
       if(e.keyCode === 38 && e.target.previousElementSibling) { // up
         e.target.previousElementSibling.focus();
       } else if(e.keyCode === 40 && e.target.nextElementSibling) { // down
@@ -30,7 +30,27 @@ function DropDown(dropDown) {
       } else if(e.keyCode === 27) { // escape key
         this.toggle(false);
       } else if(e.keyCode === 13 || e.keyCode === 32) { // enter or spacebar key
+        console.log(e.target.innerText)
+        switch (e.target.innerText) {
+          case 'Date':
+            sortByDate()
+            break;
+
+          case 'Popularité':
+            sortByPop()
+            break;
+        
+          case 'Titre':
+            sortByTitle()
+            break;
+
+          default:
+            break;
+        }
         setValue(e.target);
+      } else if (e.keyCode === 9) {
+        console.log(e.keyCode)
+        document.getElementById("portfolio").focus()
       }
     }
   

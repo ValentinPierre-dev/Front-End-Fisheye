@@ -43,7 +43,6 @@ function getUserLikes(totalLikes) {
 async function displayLikes(media) {
     const sumall = media.map(item => item.likes).reduce((prev, curr) => prev + curr, 0);
     getUserLikes(sumall);
-    console.log(sumall); 
 };
 
 // Affiche le portfolio du photographe
@@ -55,6 +54,7 @@ async function displayMedias(medias) {
         mediaArray.push(portfolioModel)
         const userPortfolio = portfolioModel.getUserMedias();
         portfolioSection.appendChild(userPortfolio);
+        console.log(mediaArray.index)
     });
 };
 

@@ -44,12 +44,12 @@ function photographerFactory(data) {
           <div class="modal">
             <header>
               <h2 id="contact_name">Contactez-moi</br>${name}</h2>
-              <img src="assets/icons/close.svg" onclick="closeModal()" />
+              <img src="assets/icons/close.svg" id="closemd" onclick="closeModal()" tabindex ="-1"/>
             </header>
-            <form>
+            <form onsubmit="sendModal(event)">
               <div>
                 <label for="firstname">Prénom</label>
-                <input class="text-control" type="text" id="firstname" name="firstname" /><br>
+                <input class="text-control" type="text" id="firstname" name="firstname"  /><br>
               </div>
               <div>
                 <label for="lastname">Nom</label>
@@ -57,13 +57,13 @@ function photographerFactory(data) {
               </div>
               <div>
                 <label for="email">E-mail</label>
-                <input class="text-control" type="email" id="email" name="email" /><br>
+                <input class="text-control" type="email" id="email" name="email"/><br>
               </div>
               <div>
                 <label for="message">Votre message</label>
-                <input class="text-control" type="textarea" id="message" name="message" /><br>
+                <textarea class="text-control" id="message" name="message" ></textarea><br>
               </div>
-              <button class="contact_button" aria-label="Send" onclick="sendModal()" id="send" href="photographer.html?id=${id}">Envoyer</button>
+              <button class="contact_button" aria-label="Send" id="send" >Envoyer</button>
             </form>
           </div>
         </div>
