@@ -110,7 +110,6 @@ p {
   cursor: pointer;
 }
 .dropdown .dropdown-toggle {
-  appearance: none;
   background: #901C1C;
   color: #fff;
   font-size: 20px;

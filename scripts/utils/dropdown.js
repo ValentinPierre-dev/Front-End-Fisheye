@@ -61,6 +61,9 @@ function DropDown(dropDown) {
         this.toggle(false);
       } else if(e.keyCode === 13 || e.keyCode === 32) { // enter or spacebar key
         this.toggle(true);
+      } else if (e.keyCode === 9) {
+        console.log(e.keyCode)
+        document.getElementById("portfolio").focus()
       }
     }
     

@@ -29,7 +29,7 @@ function mediaFactory(data) {
         const imageOrVideo = movie.indexOf("mp4");
         if (imageOrVideo !== -1){
             media.innerHTML = `
-            <video class="photos" onclick="openLightbox(${id})">
+            <video class="photos" onclick="openLightbox(${id})" tabindex="0">
                 <source src="${movie}#t=0.1" alt="${title}" aria-label="${title}, closeup view">
             </video>
             <div class="portfolio__caption">
@@ -44,7 +44,7 @@ function mediaFactory(data) {
         `
         } else {
             media.innerHTML = `
-            <img src="${photo}" class="photos" alt="${title}" onclick="openLightbox(${id})" aria-label="${title}, closeup view">
+            <img src="${photo}" class="photos" alt="${title}" onclick="openLightbox(${id})" aria-label="${title}, closeup view" tabindex="0">
             <div class="portfolio__caption">
                 <h4>${title}</h4>
                 <div class="portfolio__caption--likes">
