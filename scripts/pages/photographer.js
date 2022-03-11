@@ -54,7 +54,6 @@ async function displayMedias(medias) {
         mediaArray.push(portfolioModel)
         const userPortfolio = portfolioModel.getUserMedias();
         portfolioSection.appendChild(userPortfolio);
-        console.log(mediaArray.index)
     });
 };
 
@@ -74,12 +73,35 @@ function likesMoins(id) {
     totalLikes.innerHTML = +totalLikes.innerHTML - 1;
 }
 
+// Version accessible des incrémenations et décrémentations des likes
+
+function likesAccess(e, id){
+    const mediaToUpdate = mediaArray.find(m => m.id === id);
+    const {alreadyLike} = mediaToUpdate
+    console.log(alreadyLike)
+    if(e.keyCode === 13){
+        if(!alreadyLike){
+            likesPlus(id)
+        } else {
+            likesMoins(id)
+        }
+    }
+}
+
 // Ouvre la lightbox
 function openLightbox(id) {
     document.addEventListener('keyup', keyPress)
     const lightbox = lightboxFactory(mediaArray, id)
     lightbox.displayLightbox()
 }
+
+// Version accessible de l'ouverture de la lightbox
+function openLightboxAccess(e, id) {
+    if(e.keyCode === 13){
+        openLightbox(id)
+    }
+}
+
 
 // Passe à l'image suivante
 function nextImage(id) {
@@ -129,8 +151,6 @@ function sortByPop() {
     const portfolio = document.querySelector(".portfolio")
     portfolio.innerHTML=""
     displayMedias(mediaArray)
-    console.log(mediaArray)
-    
 }
 
 // Tri par date
@@ -145,7 +165,6 @@ function sortByDate() {
     const portfolio = document.querySelector(".portfolio")
     portfolio.innerHTML=""
     displayMedias(mediaArray)
-    console.log(mediaArray)
 }
 
 // Tri par titre
@@ -160,7 +179,6 @@ function sortByTitle() {
     const portfolio = document.querySelector(".portfolio")
     portfolio.innerHTML=""
     displayMedias(mediaArray)
-    console.log(mediaArray)
 }
 
 // Initialise toutes les données précédentes pour les afficher
@@ -171,9 +189,6 @@ async function init() {
     openContactForm(photographer);
     displayMedias(medias);
     displayLikes(medias);
-    console.log(photographer);
-    console.log(mediaArray);
 };
 
 init();
-

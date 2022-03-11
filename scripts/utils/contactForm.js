@@ -4,7 +4,7 @@ function displayModal() {
 	background.style.display = "block";
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
-    document.getElementById("firstname").focus();
+    document.getElementById("closemd").focus();
     document.getElementById("send").addEventListener("keydown", (e) => {
         console.log(e.key)
         if (e.key === "Tab"){
